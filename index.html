@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TP4 DataViz: Arbres et Réseaux</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="matrixManagement.js"></script>
+</head>
+<body>
+    <div id="container">
+        <h1>Matrice d'Adjacence - Game of Thrones</h1>
+        
+        <div id="controls">
+            <label for="sortOrder">Trier par : </label>
+            <select id="sortOrder">
+                <option value="appearance">Ordre d'apparence</option>
+                <option value="zone">Zone</option>
+                <option value="influence">Influence</option>
+            </select>
+        </div>
+
+        <div id="visu-tp4"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

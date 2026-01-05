@@ -1,0 +1,36 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container {
+    padding: 20px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+}
+
+#controls {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#visu-tp4 {
+    display: flex;
+    justify-content: center;
+}
+
+text {
+    font-size: 10px;
+    /* font-family: sans-serif; set in JS but good reset here */
+}
