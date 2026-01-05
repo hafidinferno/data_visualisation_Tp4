@@ -1,3 +1,4 @@
+#Fait par : Hafid OUCOUC /Khalil FERHATI
 # Visualisation de Matrice d'Adjacence - Game of Thrones
 
 Ce projet est une visualisation interactive de données basée sur l'univers de **Game of Thrones**. Il utilise la bibliothèque **D3.js** pour représenter les relations entre les personnages sous forme de matrice d'adjacence.
@@ -65,3 +66,4 @@ Pour fonctionner correctement (chargement des données JSON), ce projet nécessi
 
 ---
 *Ce projet a été réalisé dans le cadre du TP4 de Visualisation de Données.*
+
