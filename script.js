@@ -1,9 +1,5 @@
 
 // 1. Créer et positionner le SVG
-// Using the margins from the user's previous snippet (simulated) or standard valid ones.
-// User snippet in Step 38: top:0, right:30, bottom:20, left:10
-// But also Step 5 says add axes at "translate(60, 60)".
-// So I will keep the margin small but put the matrix/axes at 60,60 inside.
 
 const margin = { top: 0, right: 30, bottom: 20, left: 10 },
     width = 960,
@@ -40,15 +36,6 @@ d3.json("got_social_graph.json").then(function (graph) {
     var maxWeight = d3.max(adjacencyMatrix, function (d) { return d.weight; });
 
     // Step 6: "Renforcé la force des liens en multipliant toutes les valeurs par 10"
-    // We can do this by scaling the input to the opacity scale, or just adjusting the domain.
-    // If we multiply values by 10, max becomes max*10.
-    // So opacity scale domain should probably effectively be [0, maxWeight/10] if we want saturation?
-    // User phrasing: "multipliant toutes les valeurs par 10".
-    // This implies visually they trigger opacity 1.0 sooner? 
-    // Or just mathematically 10x? If I multiply data x10 and domain x10, no change.
-    // I interpret "reinforced" as "opacity saturates faster".
-    // So I will make the domain [0, maxWeight] but map value * 10 to it? 
-    // Or simply: domain [0, maxWeight]. Range [0, 1]. Input d.weight * 10.
     
     var weightScale = d3.scaleLinear()
         .domain([0, maxWeight]) 
@@ -164,12 +151,10 @@ d3.json("got_social_graph.json").then(function (graph) {
             .attr("transform", d => "translate(" + (echellexy(d.id) + echellexy.bandwidth()/2) + ", 0) rotate(-90)");
 
         matrixViz.transition(t)
-            .delay((d, i) => i * 2) // Stagger might be expensive for 100x100 rects, but let's try small or 0
-            // Actually usually we just transition positions. 
-            // If we stagger 10000 elements it might lag. 
-            // Let's delay based on x or y?
-            // "delay permet de spécifier..."
+            .delay((d, i) => i * 2) 
+
             .attr("x", function(d) { return echellexy(graph.nodes[d.x].id); })
             .attr("y", function(d) { return echellexy(graph.nodes[d.y].id); });
     }
 });
+
