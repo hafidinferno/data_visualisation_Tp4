@@ -82,10 +82,8 @@ d3.json("got_social_graph.json").then(function (graph) {
         })
         .style("opacity", function(d) {
             // Step 6: Opacity reinforced
-             if (d.weight === 0) return 0; // or very low
-             // Reinforce: d.weight * 10. Clamp to maxWeight or 1.0?
-             // If weight=5, max=50. weight*10 = 50. Opacity = 1.
-             // If weight=1, max=50. weight*10 = 10. Opacity = 0.2.
+             if (d.weight === 0) return 0; 
+           
              return weightScale(d.weight * 10); 
         });
 
@@ -137,8 +135,7 @@ d3.json("got_social_graph.json").then(function (graph) {
         var duration = 2500;
         
         // Step 7.2 Animation with delay
-        // We can stagger based on index in NEW domain? Or old?
-        // Usually stagger by index i.
+       
         
         var t = svg.transition().duration(duration);
 
@@ -157,4 +154,5 @@ d3.json("got_social_graph.json").then(function (graph) {
             .attr("y", function(d) { return echellexy(graph.nodes[d.y].id); });
     }
 });
+
 
